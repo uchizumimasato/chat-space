@@ -1,24 +1,27 @@
-# README
+#messageテーブル
+|column|type|
+|body    |text|
+|image   |string|
+|group_id|integer|
+|user_id |integer|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+#userテーブル
+|column|type|
+|name  |string|
+|email |string|
 
-* Ruby version
 
-* System dependencies
+#groupテーブル
+|column|type|
+|name    |string|
+|member  |string|
+|group_id|integer|
+|user_id |integer|
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#user_groupsテーブル
+#多対多の中間テーブル
+|column|type|
+|users_id |integer|
+|groups_id|integer|
