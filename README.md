@@ -28,8 +28,8 @@
 ###user_groupsテーブル
 |column|type|
 |:-----:|:-----:|
-|users_id |integer|
-|groups_id|integer|
+|user_id |integer|
+|group_id|integer|
 
 
 
