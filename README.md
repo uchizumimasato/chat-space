@@ -5,8 +5,7 @@
 |:-----:|:-----:|
 |body    |text|
 |image   |string|
-|group_id|integer|
-|user_id |integer|
+|user_group_id|integer|
 
 
 ###usersテーブル
@@ -20,9 +19,6 @@
 |column|type|
 |:-----:|:-----:|
 |name    |string|
-|member  |string|
-|group_id|integer|
-|user_id |integer|
 
 
 ###user_groupsテーブル
@@ -38,6 +34,7 @@
 ###usersテーブルとmessagesテーブル＝1対多
 ###usersテーブルとgroupsテーブル＝多対多
 ###groupsテーブルとmessagesテーブル＝1対多
+###messageテーブルとuser_groupテーブル=1対多
 
 
 #####user.rb
@@ -50,6 +47,7 @@
 #####class Message < ActiveRecord::Base
        belongs_to :users
        belongs_to :messages
+       belongs_to :user_group
   end
 
 
@@ -59,8 +57,10 @@
        has_many :users, through: :user_groups
   end
 
+
 #####user_group.rb
 #####class Group < ActiveRecord::Base
-       belongs :user
-       belongs :group
+       belongs_to  :user
+       belongs_to  :group
+       has_many    :message
   end
