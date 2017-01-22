@@ -6,6 +6,7 @@
 |body    |text|
 |image   |string|
 |user_group_id|integer|
+|user_id |integer|
 
 
 ###usersテーブル
@@ -40,13 +41,14 @@
 #####user.rb
 #####class User < ActiveRecord::Base
        has_many :messages
+       has_many :user_groups
        has_many :groups, through: :user_groups
   end
+
 
 #####message.rb
 #####class Message < ActiveRecord::Base
        belongs_to :users
-       belongs_to :messages
        belongs_to :user_group
   end
 
@@ -54,11 +56,12 @@
 #####group.rb
 #####class Group < ActiveRecord::Base
        has_many :messages
+       has_many :user_groups
        has_many :users, through: :user_groups
   end
 
 
-#####user_group.rb
+#####user_groups.rb
 #####class Group < ActiveRecord::Base
        belongs_to  :user
        belongs_to  :group
