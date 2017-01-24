@@ -1,24 +1,69 @@
-# README
+#テーブルのカラム
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###messagesテーブル
+|column|type|
+|:-----:|:-----:|
+|body    |text|
+|image   |string|
+|user_group_id|integer|
+|user_id |integer|
 
-Things you may want to cover:
 
-* Ruby version
+###usersテーブル
+|column|type|
+|:-----:|:----:|
+|name  |string|
+|email |string|
 
-* System dependencies
 
-* Configuration
+###groupsテーブル
+|column|type|
+|:-----:|:-----:|
+|name    |string|
 
-* Database creation
 
-* Database initialization
+###user_groupsテーブル
+|column|type|
+|:-----:|:-----:|
+|user_id |integer|
+|group_id|integer|
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+#テーブル同士のアソシエーション
 
-* ...
+###usersテーブルとmessagesテーブル＝1対多
+###usersテーブルとgroupsテーブル＝多対多
+###groupsテーブルとmessagesテーブル＝1対多
+###messageテーブルとuser_groupテーブル=1対多
+
+
+#####user.rb
+#####class User < ActiveRecord::Base
+       has_many :messages
+       has_many :user_groups
+       has_many :groups, through: :user_groups
+  end
+
+
+#####message.rb
+#####class Message < ActiveRecord::Base
+       belongs_to :users
+       belongs_to :user_group
+  end
+
+
+#####group.rb
+#####class Group < ActiveRecord::Base
+       has_many :messages
+       has_many :user_groups
+       has_many :users, through: :user_groups
+  end
+
+
+#####user_groups.rb
+#####class Group < ActiveRecord::Base
+       belongs_to  :user
+       belongs_to  :group
+       has_many    :message
+  end
