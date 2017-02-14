@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   def index
-    @message = Group.new
   end
 
   def new
