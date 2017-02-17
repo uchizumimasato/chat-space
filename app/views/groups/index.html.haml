@@ -13,6 +13,7 @@
         sample
       .chat-group-text
         hello world
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
   .chat-right
     .chat-header
       %p.chat-header-name
