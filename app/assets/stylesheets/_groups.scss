@@ -1,32 +1,32 @@
 .chat {
   height: 750px;
+
   width: 100%;
-}
-
-
-.chat-nav {
-  height: 30px;
-  background-color: #38aef0;
-  color: #fff;
-  font-size: 15px;
-  text-align: center;
 }
 
 
 .chat-left {
   width: 300px;
+
   height: 100%;
+
   background-color: #2f3e51;
+
   float: left;
   .chat-user {
     height: 100px;
+
     width: 200px;
+
     float: left;
+
     background-color: #253141;
   }
   .chat-icon {
     width: 100px;
+
     height: 100px;
+
     background-color: #253141;
     float: left;
   }
@@ -34,149 +34,216 @@
 
   .chat-user p {
     font-size: 16px;
+
     font-weight: bold;
+
     color: #fff;
+
     background-color: #253141;
+
     height: 20px;
+
     width: 100px;
+
     margin: 40px 0 40px 20px;
   }
 
   .chat-icon .fa-cog {
   color: white;
+
   font-size: 20px;
+
   margin: 40px 0;
   }
 
   .chat-icon .fa-pencil-square-o {
     color: white;
+
     font-size: 20px;
+
     margin-left: 30px;
   }
 
   .chat-group {
     color: #fff;
+
     clear: both;
+
     padding: 20px 0 20px 20px;
+
     height: 100px;
+
     width: 300px;
   }
 
   .chat-group-text {
     font-size: 11px;
+
     margin-top: 5px;
   }
 
 
 .chat-right {
   background-color: green;
+
   height: 100%;
+
   width: calc(100vw - 300px);
+
   float: left;
   .chat-header {
     height: 100px;
+
     background-color: white;
+
     border-bottom-color: #eeeeee;
+
     border-bottom-style: solid;
+
     position: relative;
   }
   .chat-body {
     height: calc(100% - 190px);
+
     background-color: #f9f9f9;
   }
   .chat-footer {
     height: 90px;
+
     background-color: #ddd;
   }
 }
 
   .chat-header-edit {
     position: absolute;
+
     top: 0;
+
     bottom: 0;
+
     margin: auto;
+
     color: #38aef0;
+
     border-color: #38aef0;
+
     border-style: solid;
+
     width: 70px;
+
     height: 40px;
+
     margin-left: 800px;
+
     margin-right: 40px;
   }
 
   .chat-header-edit p {
     margin: 10px 20px 10px 20px;
+
   }
 
   .chat-header-name {
     padding-top: 35px;
+
     margin-left: 40px;
+
     font-size: 20px;
+
     color: #333;
   }
 
   .chat-header-text {
     margin-top: 15px;
+
     margin-left: 40px;
+
     font-size: 12px;
+
     color: #999999;
   }
 
   .chat-body-name {
     float: left;
+
     margin: 40px 10px 10px 40px;
+
     font-weight: bold;
   }
 
   .chat-body-time {
     float: left;
+
     margin-top: 40px;
+
     font-size: 13px;
+
     color: #999
   }
 
   .chat-body-text {
     clear: both;
+
     margin-left: 40px;
+
     font-size: 15px;
   }
 
   .chat-footer-text {
     height: 50px;
+
     width: 710px;
+
     background-color: #fff;
+
     float: left;
+
     margin: 20px 0 20px 40px;
 
   }
 
   .chat-footer-text .fa-image {
     margin-right: 10px;
+
     margin: 20px;
+
     font-size: 15px;
+
     float: right;
   }
 
   .chat-footer-button {
     height: 50px;
+
     width: 100px;
+
     background-color: #38aef0;
+
     float: left;
+
     margin: 20px 40px 20px 10px;
   }
 
   .chat-footer-button p {
     font-size: 20px;
+
     color: #fff;
+
     height: 30px;
+
     width: 60px;
+
     margin: 10px 20px;
   }
 
   .text {
     float: left;
+
     margin-left: 10px;
+
     margin-top: 13px;
+
     color: #434a54;
+    
     font-size: 16px;
   }
