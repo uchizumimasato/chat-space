@@ -1,0 +1,37 @@
+.chat
+  .chat-left
+    .chat-user
+      %p
+        内炭真人
+    .chat-icon
+      %i{ :class => 'fa fa-pencil-square-o' }
+      %i{ :class => 'fa fa-cog' }
+    .chat-group
+      .chat-group-name
+        sample
+      .chat-group-text
+        hello world
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+  .chat-right
+    .chat-header
+      %p.chat-header-name
+        techcamp
+      %p.chat-header-text
+        Members: 内炭真人
+      .chat-header-edit
+        / = link_to "Edit", edit_group_path(@group.id.id)
+    .chat-body
+      .chat-body-name
+        内炭真人
+      .chat-body-time
+        2017/02/04/02 06:27:07
+      .chat-body-text
+        おはよう
+    .chat-footer
+      .chat-footer-text
+        .text
+          type a text
+        %i{ :class => 'fa fa-image'}
+      .chat-footer-button
+        %p
+          Send
