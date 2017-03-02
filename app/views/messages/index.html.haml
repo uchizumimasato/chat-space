@@ -1,0 +1,39 @@
+.chat
+  .chat-left
+    .chat-user
+      %p
+        = current_user.name
+    .chat-icon
+      = link_to new_group_path, method: :get do
+        %i{ :class => 'fa fa-pencil-square-o' }
+      = link_to edit_user_registration_path(current_user), method: :get do
+        %i{ :class => 'fa fa-cog' }
+    - @groups.each do |group|
+      .chat-group
+        .chat-group-name
+          = simple_format(group.name)
+        .chat-group-text
+          hello world
+  .chat-right
+    .chat-header
+      %p.chat-header-name
+        techcamp
+      %p.chat-header-text
+        Members: 内炭真人
+      .chat-header-edit
+        / = link_to "Edit", edit_group_path(@group.id.id)
+    .chat-body
+      .chat-body-name
+        内炭真人
+      .chat-body-time
+        2017/02/04/02 06:27:07
+      .chat-body-text
+        おはよう
+    .chat-footer
+      .chat-footer-text
+        .text
+          type a text
+        %i{ :class => 'fa fa-image'}
+      .chat-footer-button
+        %p
+          Send

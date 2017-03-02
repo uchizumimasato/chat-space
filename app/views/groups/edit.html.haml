@@ -1,0 +1,31 @@
+.chat-group-form
+  %h1 チャットグループ編集
+  = form_for @group do |f|
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :グループ名, class: "chat-group-form__label"
+      .chat-group-form__field--right
+        = f.text_field :name, placeholder: '名前を入力してください', class: "chat-group-form__input"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :チャットメンバー, class: "chat-group-form__label"
+      .chat-group-form__field--right
+        .chat-group-form__search.clearfix
+          %input.collection_check_boxies{:type => "checkbox"}>/
+          山田太郎
+          = succeed "\u{7530}\u{4e2d}\u{62d3}\u{4e5f}" do
+            %input.collection_check_boxies{:type => "checkbox"}/
+          = succeed "\u{9234}\u{6728}\u{4e8c}\u{90ce}" do
+            %input.collection_check_boxies{:type => "checkbox"}/
+          = succeed "\u{52a0}\u{85e4}\u{4e09}\u{90ce}" do
+            %input.collection_check_boxies{:type => "checkbox"}/
+          = succeed "\u{5c71}\u{672c}\u{9686}" do
+            %input.collection_check_boxies{:type => "checkbox"}/
+          = succeed "\u{7af9}\u{5185}\u{5065}\u{592a}" do
+            %input.collection_check_boxies{:type => "checkbox"}/
+        #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = button_tag type: "submit", class: "chat-group-form__action-btn" do
+          save
