@@ -13,9 +13,19 @@
 }
 
 
+  .chat-group:hover {
+    opacity: 0.5;
+    background-color: gray;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+
 .chat-left {
   width: 300px;
-  height: 100%;
+  min-height: 750px;
   background-color: #2f3e51;
   float: left;
   .chat-user {
@@ -40,7 +50,6 @@
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #253141;
     height: 20px;
     width: 100px;
     margin: 40px 0 40px 20px;
@@ -61,25 +70,28 @@
   .chat-group {
     color: #fff;
     clear: both;
-    margin-left: 20px;
     height: 90px;
-    width: 280px;
+    width: 300px;
   }
 
 .chat-group-name {
   padding-top: 20px;
+  margin-left: 20px;
 }
 
   .chat-group-text {
     font-size: 11px;
     margin-top: 5px;
     margin-bottom: 40px;
+    margin-left: 20px;
   }
 
 
 .chat-right {
-  background-color: green;
   height: 100%;
+  width: calc(100% - 300px);
+  float: left;
+
   .chat-header {
     height: 100px;
     background-color: white;
@@ -88,7 +100,7 @@
     position: relative;
   }
   .chat-body {
-    height: calc(100% - 190px);
+    min-height: 560px;
     background-color: #f9f9f9;
   }
   .chat-footer {
@@ -109,6 +121,7 @@
     height: 40px;
     margin-left: 800px;
     margin-right: 40px;
+    text-align: center;
   }
 
   .chat-header-edit p {
@@ -122,7 +135,7 @@
     color: #333;
   }
 
-  .chat-header-text {
+  .chat-header-member {
     margin-top: 15px;
     margin-left: 40px;
     font-size: 12px;
@@ -170,15 +183,10 @@
     background-color: #38aef0;
     float: left;
     margin: 20px 40px 20px 10px;
-  }
-
-  .chat-footer-button p {
     font-size: 20px;
     color: #fff;
-    height: 30px;
-    width: 60px;
-    margin: 10px 20px;
   }
+
 
   .text {
     float: left;

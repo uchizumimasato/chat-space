@@ -1,11 +1,12 @@
 class GroupsController < ApplicationController
+  before_action :redirect
+
   def index
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   def new
     @group = Group.new
-
   end
 
   def create
@@ -24,6 +25,11 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def redirect
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   def group_params
     params.require(:group).permit(:name, {user_ids:[]})
   end

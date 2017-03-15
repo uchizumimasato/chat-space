@@ -9,31 +9,37 @@
       = link_to edit_user_registration_path(current_user), method: :get do
         %i{ :class => 'fa fa-cog' }
     - @groups.each do |group|
-      .chat-group
-        .chat-group-name
-          = simple_format(group.name)
-        .chat-group-text
-          hello world
+      = link_to group_messages_path(group), method: :get do
+        .chat-group
+          .chat-group-name
+            = group.name
+          .chat-group-text
+            - if group.messages.present?
+              - message = group.messages.last
+              = simple_format(message.body)
+            - else
+              まだメッセージはありません。
   .chat-right
     .chat-header
-      %p.chat-header-name
-        techcamp
-      %p.chat-header-text
-        Members: 内炭真人
-      .chat-header-edit
-        / = link_to "Edit", edit_group_path(@group.id.id)
+      .chat-header-name
+        = @group.name
+      .chat-header-member
+        Members:
+        - @users.each do |user|
+          = user.name
+      = link_to edit_group_path(current_user.id), method: :get do
+        .chat-header-edit
+          Edit
     .chat-body
-      .chat-body-name
-        内炭真人
-      .chat-body-time
-        2017/02/04/02 06:27:07
-      .chat-body-text
-        おはよう
+      - @messages.each do |message|
+        .chat-body-name
+          = message.user.name
+        .chat-body-time
+          = message.created_at
+        .chat-body-text
+          = simple_format(message.body)
     .chat-footer
-      .chat-footer-text
-        .text
-          type a text
-        %i{ :class => 'fa fa-image'}
-      .chat-footer-button
-        %p
-          Send
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, placeholder: 'type a text', class: "chat-footer-text" do
+          %i{ :class => 'fa fa-image'}
+        = f.submit "Send", class: "chat-footer-button"
