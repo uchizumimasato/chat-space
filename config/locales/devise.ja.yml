@@ -8,14 +8,14 @@ ja:
       send_instructions: "アカウントの確認方法をメールでご連絡します。"
       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、アカウントの確認方法をメールでご連絡します。"
     failure:
-      already_authenticated: "既にログイン済みです。"
+      already_authenticated: "既にログインしています。"
       inactive: 'アカウントが有効になっていません。'
       invalid: '入力情報が間違っています'
       locked: "アカウントがロックされています。"
       last_attempt: "もう一回ログインに失敗したらアカウントがロックされます。"
       not_found_in_database: "メールアドレスまたはパスワードが無効です。"
       timeout: "一定時間が経過したため、再度ログインが必要です"
-      unauthenticated: "続けるには、ログインまたは登録（サインアップ）が必要です。"
+      unauthenticated: "ログアウトしました。"
       unconfirmed: "続ける前に、アカウントの確認をお願いします。"
     mailer:
       confirmation_instructions:
@@ -42,8 +42,8 @@ ja:
       update_needs_confirmation: "アカウント情報が更新されました。新しいメールアドレスの確認が必要です。更新確認のメールを新しいメールアドレス宛に送信しましたので、メールを確認し記載されたリンクを開き、新しいメールアドレスの確認をお願いします。"
       updated: "アカウントが更新されました。"
     sessions:
-      signed_in: "ログインしました。"
-      signed_out: "ログアウトしました。"
+      signed_in: "ログインが完了しました。"
+      signed_out: "アカウント。"
     unlocks:
       send_instructions: "アカウントのロックを解除する方法をメールでご連絡します。"
       send_paranoid_instructions: "アカウントが存在する場合、ロックを解除する方法をメールでご連絡します。"

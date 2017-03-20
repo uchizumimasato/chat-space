@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :redirect
+  before_action :authenticate_user!, alert: "ログインしてください"
 
   def index
     @groups = current_user.groups
@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
   def create
     Group.create(group_params)
-    redirect_to groups_path
+    redirect_to groups_path, notice: "グループが作成されました"
   end
 
   def edit
@@ -21,13 +21,7 @@ class GroupsController < ApplicationController
   def update
     group = Group.find(params[:id])
     group.update(group_params)
-    redirect_to groups_path
-  end
-
-  private
-
-  def redirect
-    redirect_to new_user_session_path unless user_signed_in?
+    redirect_to groups_path, notice: "グループが更新されました"
   end
 
   def group_params

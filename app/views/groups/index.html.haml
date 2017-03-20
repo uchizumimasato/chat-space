@@ -1,17 +1,1 @@
-.chat
-  .chat-left
-    .chat-user
-      %p
-        = current_user.name
-    .chat-icon
-      = link_to new_group_path, method: :get do
-        %i{ :class => 'fa fa-pencil-square-o' }
-      = link_to edit_user_registration_path(current_user), method: :get do
-        %i{ :class => 'fa fa-cog' }
-    - @groups.each do |group|
-      = link_to group_messages_path(group), method: :get do
-        .chat-group
-          .chat-group-name
-            = simple_format(group.name)
-          .chat-group-text
-            まだメッセージはありません。
+= render partial: "shered/groups"

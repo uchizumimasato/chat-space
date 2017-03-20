@@ -8,9 +8,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    group = Group.find(params[:group_id])
-    Message.create(message_params)
-    redirect_to group_messages_path(group)
+    message = Message.new(message_params)
+    if message.save
+      group = Group.find(params[:group_id])
+      redirect_to group_messages_path(group)
+    else
+      group = Group.find(params[:group_id])
+      redirect_to group_messages_path(group), alert: "値が入力されていません"
+    end
   end
 
   private
