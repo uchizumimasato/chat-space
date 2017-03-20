@@ -1,6 +1,6 @@
 .chat {
-  min-height: 750px;
-  width: 100%;
+  height: 100%;
+  min-width: 980px;
 }
 
 
@@ -10,6 +10,22 @@
   color: #fff;
   font-size: 15px;
   text-align: center;
+}
+
+
+  .chat-group:hover {
+    opacity: 0.5;
+    background-color: gray;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+.chat-groups {
+  overflow-y: scroll;
+  clear: both;
+  height: 650px;
 }
 
 
@@ -40,7 +56,6 @@
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #253141;
     height: 20px;
     width: 100px;
     margin: 40px 0 40px 20px;
@@ -61,25 +76,30 @@
   .chat-group {
     color: #fff;
     clear: both;
-    margin-left: 20px;
     height: 90px;
-    width: 280px;
+    width: 300px;
   }
 
 .chat-group-name {
   padding-top: 20px;
+  margin-left: 20px;
 }
 
   .chat-group-text {
     font-size: 11px;
     margin-top: 5px;
     margin-bottom: 40px;
+    margin-left: 20px;
   }
 
 
 .chat-right {
-  background-color: green;
   height: 100%;
+  width: calc(100% - 300px);
+  float: left;
+  position: relative;
+}
+
   .chat-header {
     height: 100px;
     background-color: white;
@@ -87,15 +107,18 @@
     border-bottom-style: solid;
     position: relative;
   }
+
   .chat-body {
-    height: calc(100% - 190px);
+    height: 560px;
     background-color: #f9f9f9;
+    overflow-y: scroll;
   }
+
   .chat-footer {
     height: 90px;
     background-color: #ddd;
   }
-}
+
 
   .chat-header-edit {
     position: absolute;
@@ -109,10 +132,7 @@
     height: 40px;
     margin-left: 800px;
     margin-right: 40px;
-  }
-
-  .chat-header-edit p {
-    margin: 10px 20px 10px 20px;
+    text-align: center;
   }
 
   .chat-header-name {
@@ -122,7 +142,7 @@
     color: #333;
   }
 
-  .chat-header-text {
+  .chat-header-member {
     margin-top: 15px;
     margin-left: 40px;
     font-size: 12px;
@@ -148,20 +168,50 @@
     font-size: 15px;
   }
 
-  .chat-footer-text {
-    height: 50px;
-    width: 710px;
-    background-color: #fff;
+  .chat-footer-body {
     float: left;
+    width: calc(100% - 190px);
+    height: 50px;
     margin: 20px 0 20px 40px;
-
+    border: none;
   }
 
-  .chat-footer-text .fa-image {
-    margin-right: 10px;
-    margin: 20px;
-    font-size: 15px;
-    float: right;
+  .chat-footer-text {
+    // height: 50px;
+    // width: 100%;
+    // background-color: #fff;
+    // margin: 20px 0 20px 40px;
+    // float: left;
+    height: 50px;
+    width: calc(100% - 45px);
+    line-height: 20px;
+    border: none;
+    line-height: 20px;
+    float: left;
+  }
+
+  .chat-footer-image {
+    height: 50px;
+    width: 40px;
+    background-color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+  }
+
+.file_field {
+  display: none;
+}
+
+  .chat-footer-image .fa-image {
+    // margin-right: 10px;
+    // margin: 20px;
+    // font-size: 15px;
+    // float: right;
+    height: 20px;
+    width:20px;
+    margin-top: 20px;
+    margin-left: 10px;
   }
 
   .chat-footer-button {
@@ -169,26 +219,10 @@
     width: 100px;
     background-color: #38aef0;
     float: left;
-    margin: 20px 40px 20px 10px;
-  }
-
-  .chat-footer-button p {
+    margin: 20px 0 20px 10px;
     font-size: 20px;
     color: #fff;
-    height: 30px;
-    width: 60px;
-    margin: 10px 20px;
   }
-
-  .text {
-    float: left;
-    margin-left: 10px;
-    margin-top: 13px;
-    color: #434a54;
-    font-size: 16px;
-  }
-
-
 
 
 
@@ -311,7 +345,3 @@
 html {
   background-color: #f9f9f9;
 }
-
-
-
-
