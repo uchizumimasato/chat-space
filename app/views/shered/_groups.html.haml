@@ -16,6 +16,6 @@
           .chat-group-text
             - if group.messages.present?
               - message = group.messages.last
-              = message.body.truncate(20)
+              = message.body.truncate(25)
             - else
               まだメッセージがありません。

@@ -8,18 +8,18 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.new(message_params)
+    message = Message.new(create_params)
     if message.save
       group = Group.find(params[:group_id])
       redirect_to group_messages_path(group)
-    else
+    elsif
       group = Group.find(params[:group_id])
-      redirect_to group_messages_path(group), alert: "値が入力されていません"
+      redirect_to group_messages_path(group), alert: "何か値を入力してください。"
     end
   end
 
   private
-  def message_params
+  def create_params
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 end
