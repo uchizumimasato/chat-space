@@ -14,7 +14,8 @@ class MessagesController < ApplicationController
       redirect_to group_messages_path(group)
     elsif
       group = Group.find(params[:group_id])
-      redirect_to group_messages_path(group), alert: "何か値を入力してください。"
+      flash[:alert] = message.errors.full_messages.join(',')
+      redirect_to group_messages_path(group)
     end
   end
 
@@ -22,4 +23,5 @@ class MessagesController < ApplicationController
   def create_params
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
   end
+
 end
