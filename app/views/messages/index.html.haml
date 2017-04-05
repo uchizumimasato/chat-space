@@ -11,13 +11,14 @@
             = user.name
         = link_to edit_group_path(@group), method: :get do
           .chat-header-edit
-            Edit
+            %p
+              Edit
       .chat-body
         - @messages.each do |message|
           .chat-body-name
             = message.user.name
           .chat-body-time
-            = message.created_at
+            = message.created_at.to_s(:twelve_hour)
           .chat-body-text
             = simple_format(message.body)
       .chat-footer

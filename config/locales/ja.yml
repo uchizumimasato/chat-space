@@ -5,6 +5,8 @@ ja:
     group_id: グループ名
     user: ユーザー
     body: メッセージ
+    name: グループ名
+    user_ids: メンバー
   date:
     abbr_day_names:
     - 日

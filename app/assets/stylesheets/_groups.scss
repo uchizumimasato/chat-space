@@ -135,6 +135,10 @@
     text-align: center;
   }
 
+  .chat-header-edit p {
+    margin-top: 8px;
+  }
+
   .chat-header-name {
     padding-top: 35px;
     margin-left: 40px;
@@ -143,7 +147,7 @@
   }
 
   .chat-header-member {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 40px;
     font-size: 12px;
     color: #999999;
@@ -223,6 +227,11 @@
     font-size: 20px;
     color: #fff;
   }
+
+  // ::-webkit-input-placeholder {
+  //   color: red;
+
+  // }
 
 
 
