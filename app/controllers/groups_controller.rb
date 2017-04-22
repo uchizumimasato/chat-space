@@ -13,7 +13,6 @@ class GroupsController < ApplicationController
   def create
     group = Group.new(group_params)
     if group.save
-      binding.pry
       redirect_to groups_path, notice: "グループが作成されました。"
     elsif group.name.empty?
       flash[:alert] = group.errors.full_messages.join('.')
