@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe Message do
+
   describe '#create' do
 
     it "is valid with message image" do
@@ -15,4 +16,5 @@ describe Message do
     end
 
   end
+
 end
