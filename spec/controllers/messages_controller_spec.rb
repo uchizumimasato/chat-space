@@ -15,8 +15,8 @@ describe MessagesController do
   end
 
   before do
-      login_user user
-    end
+    login_user user
+  end
 
 
   describe 'GET #index' do

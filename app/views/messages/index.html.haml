@@ -18,7 +18,8 @@
           .chat-body-name
             = message.user.name
           .chat-body-time
-            = message.created_at.to_s(:twelve_hour)
+            - time = Time.now
+            = time.strftime("%Y年%m月%d日 %H:%M:%S")
           .chat-body-text
             = simple_format(message.body)
       .chat-footer

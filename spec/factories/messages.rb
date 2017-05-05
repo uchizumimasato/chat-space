@@ -1,11 +1,11 @@
 FactoryGirl.define do
 
   factory :message do
-    id        1
-    body      "text"
-    image     "neko.jpg"
-    group_id  1
-    user_id   1
+    id        { Faker::Number.number(1) }
+    body      { Faker::Lorem.sentence }
+    image     { Faker::Avatar.image }
+    group_id  { Faker::Number.number(1) }
+    user_id   { Faker::Number.number(1) }
 
     factory :invalid_message do
       body   nil

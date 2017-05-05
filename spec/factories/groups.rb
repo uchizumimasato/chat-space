@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :group do
-    name      "テック"
+    name { Faker::Name.name }
   end
 
 end
