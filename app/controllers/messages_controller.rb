@@ -11,8 +11,8 @@ class MessagesController < ApplicationController
     message = Message.new(create_params)
     if message.save
       group = Group.find(params[:group_id])
-      redirect_to group_messages_path(group)
-    elsif
+      redirect_to group_messages_path(group), notice: "メッセージが送信されました。"
+    else
       group = Group.find(params[:group_id])
       flash[:alert] = message.errors.full_messages.join(',')
       redirect_to group_messages_path(group)

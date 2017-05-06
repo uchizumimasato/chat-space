@@ -135,6 +135,10 @@
     text-align: center;
   }
 
+  .chat-header-edit p {
+    margin-top: 8px;
+  }
+
   .chat-header-name {
     padding-top: 35px;
     margin-left: 40px;
@@ -143,7 +147,7 @@
   }
 
   .chat-header-member {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 40px;
     font-size: 12px;
     color: #999999;
@@ -176,11 +180,6 @@
   }
 
   .chat-footer-text {
-    // height: 50px;
-    // width: 100%;
-    // background-color: #fff;
-    // margin: 20px 0 20px 40px;
-    // float: left;
     height: 50px;
     width: calc(100% - 45px);
     border: none;
@@ -204,10 +203,6 @@
 }
 
   .chat-footer-image .fa-image {
-    // margin-right: 10px;
-    // margin: 20px;
-    // font-size: 15px;
-    // float: right;
     height: 20px;
     width:20px;
     margin-top: 20px;
@@ -223,10 +218,6 @@
     font-size: 20px;
     color: #fff;
   }
-
-
-
-
 
 
 .chat-group-form {
