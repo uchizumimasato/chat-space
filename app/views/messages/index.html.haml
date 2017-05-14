@@ -23,10 +23,10 @@
           .chat-body-text
             = simple_format(message.body)
       .chat-footer
-        = form_for [@group, @message] do |f|
+        = form_for [@group, @message], { class: 'form js-form' } do |f|
           .chat-footer-body
             = f.text_area :body, placeholder: 'type a text', class: "chat-footer-text"
             %label.chat-footer-image
               = f.file_field :image, class: "file_field"
               %i.fa.fa-image
-          = f.submit "Send", class: "chat-footer-button"
+          = f.submit "Send", data: { disable_with: "送信中..." }, class: "chat-footer-button"

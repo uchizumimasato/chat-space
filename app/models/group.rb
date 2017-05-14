@@ -3,5 +3,5 @@ class Group < ApplicationRecord
   has_many :group_users
   accepts_nested_attributes_for :group_users
   has_many :messages
-  # validates :name, :user_ids, presence: true
+  validates :name, :user_ids, presence: true
 end
