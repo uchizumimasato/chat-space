@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
     @message = Message.new(create_params)
       if @message.save
         respond_to do |format|
-          format.html { redirect_to :root }
           format.json { render json: message_js(@message) }
         end
       else
