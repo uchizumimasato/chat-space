@@ -29,4 +29,4 @@
             %label.chat-footer-image
               = f.file_field :image, class: "file_field"
               %i.fa.fa-image
-          = f.submit "Send", class: "chat-footer-button"
+          = f.submit "Send", data: { disable_with: "送信中..." }, class: "chat-footer-button"
