@@ -23,7 +23,7 @@
           .chat-body-text
             = simple_format(message.body)
       .chat-footer
-        = form_for [@group, @message] do |f|
+        = form_for [@group, @message], { class: 'form js-form' } do |f|
           .chat-footer-body
             = f.text_area :body, placeholder: 'type a text', class: "chat-footer-text"
             %label.chat-footer-image
