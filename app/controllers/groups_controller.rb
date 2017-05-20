@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    @users = @group.users
   end
 
   def create
@@ -34,6 +35,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, {user_ids:[]})
+    params.require(:group).permit(:name).merge(user_id: 1)
   end
 end
