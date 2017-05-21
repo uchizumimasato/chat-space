@@ -26,12 +26,6 @@ $(document).on('turbolinks:load', function(){
                       </div>
                       <input type="hidden" name="group[user_ids][]" value="${name.id}">
                     </div>`
-          // $(this).removeClass("list")
-          // $(this).addClass("li")
-          // var button = $(this).find('.button')
-          // var text = button.text('削除')
-          // $(button).removeClass('butonn')
-          // $(button).addClass('deletebutton')
           $("ol").append(member)
           removeButton(i, name, list);
       })
