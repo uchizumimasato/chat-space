@@ -12,8 +12,4 @@ class UsersController < ApplicationController
     params[:name]
   end
 
-  def user_js(user)
-    hash = { name: user.name, id: user.id }
-  end
-
 end
