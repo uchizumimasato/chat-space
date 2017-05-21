@@ -376,7 +376,7 @@ li p {
   font-size: 15px;
 }
 
-.deletebutton {
+.delete_button {
   color: red;
   float: right;
   font-size: 15px;
@@ -390,7 +390,8 @@ li p {
   float: right;
 }
 
-.li {
+.member {
+  width: 100%;
   height: 50px;
   padding: 10px;
   border-bottom: 1px solid #ddd;

@@ -1,29 +1,56 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(names) {
 
+    // インクリメンタルサーチを動かす
     $(names).each(function(i, name) {
-      var button = `<div class="button">追加</div>`
-      var name   = `<div class="list"> ${ name.name } </div>`;
-      $("#lists").append(name)
-      $(".button").remove()
-      $(".list").append(button)
+      var list = `<div class="list">
+                    ${ name.name }
+                    <div class="button button${i}" data_user_name = "${ name.name }" data_user_id = "${ name.id }">
+                      追加
+                    </div>
+                  </div>`
+      $("#lists").append(list)
+        addButton(i, name, list);
     })
 
-    $('.list').on('click', function(e) {
-      e.preventDefault();
-      $(this).removeClass("list")
-      $(this).addClass("li")
-      var button = $(this).find('.button')
-      $(button).removeClass('butonn')
-      $(button).addClass('deletebutton')
-      var text = button.text('削除')
-      var list = $(this)
-      $(this).remove()
-      $('ol').append(list)
-      $('li').append(`<p class="text"></p>`)
-    })
+    // 追加ボタンが押されたときの挙動
+    function addButton(i, name, list) {
+      $(`.button${i}`).on('click', function(e) {
+        e.preventDefault();
+        var parent = $(this).parent()
+        $(parent).remove()
+        var member = `<div class="member">
+                      ${ name.name }
+                      <div class="delete_button button${i}" data_user_name = "${ name.name }" data_user_id = "${ name.id }">
+                        削除
+                      </div>
+                      <input type="hidden" name="group[user_ids][]" value="${name.id}">
+                    </div>`
+          // $(this).removeClass("list")
+          // $(this).addClass("li")
+          // var button = $(this).find('.button')
+          // var text = button.text('削除')
+          // $(button).removeClass('butonn')
+          // $(button).addClass('deletebutton')
+          $("ol").append(member)
+          removeButton(i, name, list);
+      })
+    }
+
+    // 削除ボタンが押されたときの挙動
+    function removeButton(i, name, list) {
+      $(`.button${i}`).on('click', function(e) {
+        e.preventDefault();
+        $('#lists').append(list)
+        var parent = $(this).parent()
+        $(parent).remove()
+        addButton(i, name);
+      })
+    }
+
   }
 
+  // 非同期通信を発火させる
   $('.chat-group-form__search').on('keyup', function(e) {
     $(".list").text('')
     $('.list').remove()
@@ -35,7 +62,7 @@ $(document).on('turbolinks:load', function(){
           url:         '/users/search',
           dataType:    'json',
       })
-      .done(function(data) {
+      .done(function(data, da) {
         buildHTML(data);
       })
       .fail(function() {
@@ -44,4 +71,5 @@ $(document).on('turbolinks:load', function(){
       })
     };
   });
+
 });

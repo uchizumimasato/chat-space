@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     params[:name]
   end
 
-  def name_js(user)
-    hash = { name: @users.name }
+  def user_js(user)
+    hash = { name: user.name, id: user.id }
   end
 
 end

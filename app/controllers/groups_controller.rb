@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    binding.pry
     group = Group.new(group_params)
     if group.save
       redirect_to groups_path, notice: "グループが作成されました。"
@@ -26,6 +27,7 @@ class GroupsController < ApplicationController
   def edit
     @group = Group.find(params[:id])
     @group.users << current_user
+    @users = @group.users
   end
 
   def update
@@ -35,6 +37,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name).merge(user_id: 1)
+    params.require(:group).permit(:name, {user_ids:[]})
   end
 end
