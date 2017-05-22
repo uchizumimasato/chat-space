@@ -16,7 +16,7 @@
     .chat-group-form__field--right
       .chat-group-form__member
         - @users.each do |user|
-          = render partial: "shered/members", locals: {user: user, f: f}
+          = render partial: "shered/members", collection: @users, locals: { f: f }
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
