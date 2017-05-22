@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function(){
                       </div>
                       <input type="hidden" name="group[user_ids][]" value="${name.id}">
                     </div>`
-          $("ol").append(member)
+          $('.ol').append(member)
           removeButton(i, name, list);
       })
     }
