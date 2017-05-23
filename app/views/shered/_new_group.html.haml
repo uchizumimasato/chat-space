@@ -15,7 +15,7 @@
       = f.label :チャットメンバー, class: "chat-group-form__label"
     .chat-group-form__field--right
       .chat-group-form__member
-        = render partial: "shered/members", collection: @users, locals: { f: f }
+        = render partial: "shered/member", collection: @users, locals: { f: f }
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
