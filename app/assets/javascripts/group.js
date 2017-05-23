@@ -49,7 +49,7 @@ $(document).on('turbolinks:load', function() {
     $(".list").text('');
     $('.list').remove();
     var input = $('.chat-group-form__search').val();
-    if (input.length != 0) {
+    if (input.length !== 0) {
       $.ajax({
           type:        'GET',
           data:        { name: input },
