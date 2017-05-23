@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, alert: "ログインしてください"
+  before_action :find_group, only:[:edit, :update]
 
   def index
     @groups = current_user.groups
@@ -7,8 +8,8 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
-    @users = @group.users
+    @users = []
+    @users << current_user
   end
 
   def create
@@ -24,18 +25,21 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
     @group.users << current_user
     @users = @group.users
   end
 
   def update
-    group = Group.find(params[:id])
-    group.update(group_params)
+    @group.update(group_params)
     redirect_to groups_path, notice: "グループが更新されました。"
   end
 
   def group_params
     params.require(:group).permit(:name, {user_ids:[]})
   end
+
+  def find_group
+    @group = Group.find(params[:id])
+  end
+
 end
