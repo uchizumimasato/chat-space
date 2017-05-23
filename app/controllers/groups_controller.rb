@@ -34,6 +34,8 @@ class GroupsController < ApplicationController
     redirect_to groups_path, notice: "グループが更新されました。"
   end
 
+  private
+
   def group_params
     params.require(:group).permit(:name, {user_ids:[]})
   end

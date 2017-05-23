@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def search_params
     params[:name]
   end
