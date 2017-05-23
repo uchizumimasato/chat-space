@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
-    @users = users(@group)
+    @users = @group.users
   end
 
   def create
@@ -38,9 +38,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, {user_ids:[]})
   end
-
-  def users(group)
-    group.users
-  end
-
 end
