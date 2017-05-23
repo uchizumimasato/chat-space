@@ -9,16 +9,16 @@ $(document).on('turbolinks:load', function() {
                       追加
                     </div>
                   </div>`
-      $("#lists").append(list)
+      $("#lists").append(list);
       addButton(i, name, list);
-    })
+    });
 
     // 追加ボタンが押されたときの挙動
     function addButton(i, name, list) {
       $(`.button${i}`).on('click', function(e) {
         e.preventDefault();
-        var parent = $(this).parent()
-        $(parent).remove()
+        var parent = $(this).parent();
+        $(parent).remove();
         var member = `<div class="member">
                       ${ name.name }
                       <div class="delete_button button${i}" data_user_name = "${ name.name }" data_user_id = "${ name.id }">
@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
                       </div>
                       <input type="hidden" name="group[user_ids][]" value="${name.id}">
                     </div>`
-        $('.ol').append(member)
+        $('.ol').append(member);
         removeButton(i, name, list);
       })
     }
@@ -35,9 +35,9 @@ $(document).on('turbolinks:load', function() {
     function removeButton(i, name, list) {
       $(`.button${i}`).on('click', function(e) {
         e.preventDefault();
-        $('#lists').append(list)
-        var parent = $(this).parent()
-        $(parent).remove()
+        $('#lists').append(list);
+        var parent = $(this).parent();
+        $(parent).remove();
         addButton(i, name);
       })
     }
@@ -46,9 +46,9 @@ $(document).on('turbolinks:load', function() {
 
   // 非同期通信を発火させる
   $('.chat-group-form__search').on('keyup', function(e) {
-    $(".list").text('')
-    $('.list').remove()
-    var input = $('.chat-group-form__search').val()
+    $(".list").text('');
+    $('.list').remove();
+    var input = $('.chat-group-form__search').val();
     if (input.length != 0) {
       $.ajax({
           type:        'GET',
@@ -60,9 +60,9 @@ $(document).on('turbolinks:load', function() {
         buildHTML(data);
       })
       .fail(function() {
-        console.log("失敗")
+        console.log("失敗");
         alert('error');
-      })
+      });
     };
   });
 
