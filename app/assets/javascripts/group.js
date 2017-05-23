@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
                     </div>
                   </div>`
       $("#lists").append(list)
-        addButton(i, name, list);
+      addButton(i, name, list);
     })
 
     // 追加ボタンが押されたときの挙動
@@ -26,8 +26,8 @@ $(document).on('turbolinks:load', function() {
                       </div>
                       <input type="hidden" name="group[user_ids][]" value="${name.id}">
                     </div>`
-          $('.ol').append(member)
-          removeButton(i, name, list);
+        $('.ol').append(member)
+        removeButton(i, name, list);
       })
     }
 
