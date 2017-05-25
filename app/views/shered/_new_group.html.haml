@@ -6,10 +6,16 @@
       = f.text_field :name, placeholder: '名前を入力してください', class: "chat-group-form__input"
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
+      = f.label :チャットメンバーを追加する, class: "chat-group-form__label"
+    .chat-group-form__field--right
+      %input.chat-group-form__search{placeholder: "メンバーを追加してください",type: "text"}
+  #lists
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
       = f.label :チャットメンバー, class: "chat-group-form__label"
     .chat-group-form__field--right
-      .chat-group-form__search.clearfix
-        = f.collection_check_boxes :user_ids, User.all, :id, :name
+      .chat-group-form__member
+        = render partial: "shered/member", collection: @users, locals: { f: f }
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

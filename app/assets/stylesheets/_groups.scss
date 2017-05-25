@@ -270,6 +270,7 @@
       padding-right: 20px;
       padding-left: 20px;
       box-sizing: border-box;
+      clear: both;
     }
 
     .chat-group-form__field--right {
@@ -285,6 +286,14 @@
     }
 
     .chat-group-form__input {
+      float: left;
+      width: 100%;
+      line-height: 30px;
+      padding: 10px 15px;
+      box-sizing: border-box;
+    }
+
+    .chat-group-form__search {
       float: left;
       width: 100%;
       line-height: 30px;
@@ -335,4 +344,56 @@
 
 html {
   background-color: #f9f9f9;
+}
+
+li {
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 15px 0;
+}
+
+li p {
+
+}
+
+.chat-group-form__member {
+  padding: 15px 0;
+}
+
+.list {
+  width: 70%;
+  height: 50px;
+  padding: 10px;
+  float: right;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.button {
+  float: right;
+  color: #38aef0;
+  font-size: 15px;
+}
+
+.delete_button {
+  color: red;
+  float: right;
+  font-size: 15px;
+}
+
+.removebutton {
+  display: none;
+}
+
+.text {
+  float: right;
+}
+
+.member {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
 }
