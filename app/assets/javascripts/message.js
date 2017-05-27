@@ -1,9 +1,17 @@
 $(function() {
+
   function buildHTML(message) {
-    var name       = `<div class="chat-body-name"> ${ message.name } </div>`;
-    var created_at = `<div class="chat-body-time"> ${ message.created_at } </div>`;
-    var body       = `<div class="chat-body-text"> ${ message.body } </div>`;
-    $('.chat-body').append(name, created_at, body);
+    var name       = `<div class="chat-body-message__name"> ${ message.name } </div>`;
+    var created_at = `<div class="chat-body-message__time"> ${ message.created_at } </div>`;
+    var body       = `<div class="chat-body-message__text"> ${ message.body } </div>`;
+    var image      = `<div class="chat-body-message__text"> <img src="${ message.image }" class="chat-image"></div>`;
+    if (message.image == undefined) {
+      $('.chat-body-message').append(name, created_at, body);
+    } else if (message.body == undefined) {
+      $('.chat-body-message').append(name, created_at, image);
+    } else {
+      $('.chat-body-message').append(name, created_at, body, image);
+    }
   }
 
   $('#new_message').on('submit', function(e) {
@@ -21,6 +29,7 @@ $(function() {
     .done(function(data) {
       buildHTML(data);
       $('#message_body').val('');
+      $('input[type="file"]').val('');
     })
     .fail(function() {
       alert('error');
