@@ -15,8 +15,7 @@ class MessagesController < ApplicationController
         format.json { render json: message_js(@message) }
       end
     else
-      flash[:alert] = @message.errors.full_messages.join(',')
-      redirect_to group_messages_path(find_params)
+      redirect_to group_messages_path(find_params), alert: "メッセージを入力してください"
     end
   end
 
