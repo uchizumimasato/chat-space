@@ -153,23 +153,28 @@
     color: #999999;
   }
 
-  .chat-body-name {
+  .chat-body-message__name {
     float: left;
     margin: 40px 10px 10px 40px;
     font-weight: bold;
   }
 
-  .chat-body-time {
+  .chat-body-message__time {
     float: left;
     margin-top: 40px;
     font-size: 13px;
     color: #999
   }
 
-  .chat-body-text {
+  .chat-body-message__text {
     clear: both;
     margin-left: 40px;
     font-size: 15px;
+  }
+
+  .chat-image {
+    width: 150px;
+    height: 150px;
   }
 
   .chat-footer-body {

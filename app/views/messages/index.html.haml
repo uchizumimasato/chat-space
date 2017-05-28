@@ -1,27 +1,19 @@
 .chat-layaut
   .chat
-    = render partial: "shered/groups"
+    = render partial: 'shered/groups'
     .chat-right
       .chat-header
         .chat-header-name
           = @group.name
         .chat-header-member
           Members:
-          - @users.each do |user|
-            = user.name
+          = render partial: 'shered/user', collection: @users
         = link_to edit_group_path(@group), method: :get do
           .chat-header-edit
             %p
               Edit
       .chat-body
-        - @messages.each do |message|
-          .chat-body-name
-            = message.user.name
-          .chat-body-time
-            - time = Time.now
-            = time.strftime("%Y年%m月%d日 %H:%M:%S")
-          .chat-body-text
-            = simple_format(message.body)
+        = render partial: 'shered/message', collection: @messages
       .chat-footer
         = form_for [@group, @message], { class: 'form js-form' } do |f|
           .chat-footer-body
