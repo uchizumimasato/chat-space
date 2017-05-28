@@ -6,4 +6,4 @@
   .chat-body-message__text
     = simple_format(message.body)
     - unless message.image.blank?
-      = image_tag message.image, class: 'chat-image'
+      = image_tag message.image.to_s, class: 'chat-image'
