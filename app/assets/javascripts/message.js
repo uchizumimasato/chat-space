@@ -18,7 +18,6 @@ $(function() {
     e.preventDefault();
     var formdata  = new FormData($('#new_message').get(0));
     $('.chat-footer-button').removeAttr('data-disable-with');
-    console.log('aaaaaa');
     $.ajax({
       type:        'POST',
       data:        formdata,
