@@ -6,11 +6,11 @@ $(function() {
     var body       = `<div class="chat-body-message__text"> ${ message.body } </div>`;
     var image      = `<div class="chat-body-message__text"> <img src="${ message.image }" class="chat-image"></div>`;
     if (message.image == undefined) {
-      $('.chat-body-message').append(name, created_at, body);
+      $('.chat-body').append(name, created_at, body);
     } else if (message.body == undefined) {
-      $('.chat-body-message').append(name, created_at, image);
+      $('.chat-body').append(name, created_at, image);
     } else {
-      $('.chat-body-message').append(name, created_at, body, image);
+      $('.chat-body').append(name, created_at, body, image);
     }
   }
 
