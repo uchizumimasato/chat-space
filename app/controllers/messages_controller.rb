@@ -6,6 +6,12 @@ class MessagesController < ApplicationController
     @message  = Message.new
     @messages = @group.messages
     @users    = @group.users
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: auto_params
+         }
+    end
   end
 
   def create
@@ -31,5 +37,14 @@ class MessagesController < ApplicationController
 
   def find_params
     Group.find(params[:group_id])
+  end
+
+  def auto_params
+    @new_messages = Message.where('id > ?', params[:message_id] ) if params[:message_id] != 0
+    @new_message = []
+    @new_messages.each do |message|
+      @new_message << message_js(message)
+    end
+    return @new_message
   end
 end

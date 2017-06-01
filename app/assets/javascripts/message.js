@@ -1,5 +1,5 @@
 $(function() {
-
+  // メッセージを追加
   function buildHTML(message) {
     var name       = `<div class="chat-body-message__name"> ${ message.name } </div>`;
     var created_at = `<div class="chat-body-message__time"> ${ message.created_at } </div>`;
@@ -14,6 +14,27 @@ $(function() {
     }
   }
 
+  // 自動更新の挙動
+  setInterval(update, 10000);
+  function update(){
+    var message_id = $('.messages:last').data('id')
+    $.ajax({
+      type:        'GET',
+      data:        { message_id: message_id },
+      url:         location.href,
+      dataType:    'json',
+    })
+    .done(function(data) {
+      $.each(data, function(i, data){
+        buildHTML(data);
+      })
+    })
+    .fail(function() {
+      alert('error')
+    })
+  }
+
+  // ボタンを押すと発火する
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formdata  = new FormData($('#new_message').get(0));
