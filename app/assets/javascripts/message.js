@@ -31,7 +31,7 @@ $(function() {
     })
     .fail(function() {
       alert('error')
-    })
+    });
   }
 
   // ボタンを押すと発火する
