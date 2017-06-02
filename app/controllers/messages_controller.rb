@@ -8,9 +8,7 @@ class MessagesController < ApplicationController
     @users    = @group.users
     respond_to do |format|
       format.html
-      format.json {
-        render json: auto_params
-         }
+      format.json { render json: auto_params }
     end
   end
 
@@ -40,11 +38,12 @@ class MessagesController < ApplicationController
   end
 
   def auto_params
-    @new_messages = Message.where('id > ?', params[:message_id] ) if params[:message_id] != 0
-    @new_message = []
-    @new_messages.each do |message|
-      @new_message << message_js(message)
+    new_messages = Message.where("id > #{params[:message_id]}", group_id: params[:group_id]).where.not(user_id: current_user.id)
+    new_message = []
+    new_messages.each do |message|
+      new_message << message_js(message)
+      binding.pry
     end
-    return @new_message
+    return new_message
   end
 end
