@@ -15,22 +15,24 @@ $(function() {
   }
 
   // 自動更新の挙動
-  setInterval(update, 10000);
+  setInterval(update, 1000*10);
   function update(){
-    var message_id = $('.messages:last').data('id')
+    // var message_id = $('.messages:last').data('id')
     $.ajax({
       type:        'GET',
-      data:        { message_id: message_id },
+      data:        { message_id: $('.messages:last').data('id') },
       url:         location.href,
       dataType:    'json',
     })
     .done(function(data) {
+      console.log("成功です")
       $.each(data, function(i, data){
         buildHTML(data);
       })
     })
     .fail(function() {
-      alert('error')
+      // alert('error')
+      console.log("エラーです")
     });
   }
 
@@ -53,7 +55,7 @@ $(function() {
       $('input[type="file"]').val('');
     })
     .fail(function() {
-      alert('error');
+      // alert('error');
     });
   });
 });
