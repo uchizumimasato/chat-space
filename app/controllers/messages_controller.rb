@@ -38,12 +38,7 @@ class MessagesController < ApplicationController
   end
 
   def auto_params
-    new_messages = Message.where("id > #{params[:message_id]}", group_id: params[:group_id]).where.not(user_id: current_user.id)
-    new_message = []
-    new_messages.each do |message|
-      new_message << message_js(message)
-      binding.pry
-    end
-    return new_message
+    new_messages = Message.where("id > #{params[:message_id]}", group_id: params[:group_id]).where.not(user_id: current_user.id).map{ |new_message| message_js(new_message)}
+    return new_messages
   end
 end
