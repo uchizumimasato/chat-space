@@ -24,7 +24,6 @@ $(function() {
       dataType:    'json',
     })
     .done(function(data) {
-      console.log("成功です")
       $.each(data, function(i, data){
         buildHTML(data);
       })
