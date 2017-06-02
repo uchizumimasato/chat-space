@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
     @messages = @group.messages
     @users    = @group.users
     respond_to do |format|
-      format.html
       format.json { render json: auto_params }
     end
   end
