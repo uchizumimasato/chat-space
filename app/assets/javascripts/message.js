@@ -17,7 +17,6 @@ $(function() {
   // 自動更新の挙動
   setInterval(update, 1000*10);
   function update(){
-    // var message_id = $('.messages:last').data('id')
     $.ajax({
       type:        'GET',
       data:        { message_id: $('.messages:last').data('id') },
@@ -31,8 +30,7 @@ $(function() {
       })
     })
     .fail(function() {
-      // alert('error')
-      console.log("エラーです")
+      alert('error')
     });
   }
 
@@ -55,7 +53,7 @@ $(function() {
       $('input[type="file"]').val('');
     })
     .fail(function() {
-      // alert('error');
+      alert('error');
     });
   });
 });
