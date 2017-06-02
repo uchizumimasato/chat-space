@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
     @message  = Message.new
     @messages = @group.messages
     @users    = @group.users
+    respond_to do |format|
+      format.json { render json: auto_params }
+    end
   end
 
   def create
@@ -31,5 +34,9 @@ class MessagesController < ApplicationController
 
   def find_params
     Group.find(params[:group_id])
+  end
+
+  def auto_params
+    Message.where("id > #{params[:message_id]}", group_id: params[:group_id]).where.not(user_id: current_user.id).map{ |new_message| message_js(new_message)}
   end
 end
